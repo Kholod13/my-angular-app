@@ -1,0 +1,7 @@
+.list{
+   padding: 0;
+}
+
+.list li:nth-child(even){
+   background-color: #9DC2CE;
+}
