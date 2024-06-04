@@ -1,7 +1,7 @@
 <ul class="list">
-  @for (i of items; track i.id) {
-   <app-list-item [item]="i"></app-list-item>
-  }
+   <div *ngFor="let i of items; let idx = index">
+      <app-list-item [item]="i" (delete)="removeItem(idx)"></app-list-item>
+   </div>
 </ul>
 
 <div>

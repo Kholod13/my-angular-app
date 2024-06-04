@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IItem } from '../item';
 
 @Component({
@@ -9,15 +9,17 @@ import { IItem } from '../item';
 })
 export class ListItemComponent {
   @Input() item!: IItem;
+  @Output() delete = new EventEmitter<void>();
 
-  // Метод для обробки кліків на всьому елементі <li>
-  onClick(event: MouseEvent) {
+  // Метод для обробки кліків на чекбоксі
+  toggleCheck(event: MouseEvent) {
+    event.stopPropagation(); // Запобігає виклику інших обробників кліків на батьківських елементах
     this.item.isChecked = !this.item.isChecked;
   }
 
-  // Метод для обробки кліків тільки на чекбоксі
-  toggleCheck(event: MouseEvent) {
-    event.stopPropagation(); // Запобігає виклику onClick на батьківському <li>
-    this.item.isChecked = !this.item.isChecked;
+  // Метод для видалення елемента
+  onDelete(event: MouseEvent) {
+    event.stopPropagation(); // Запобігає виклику інших обробників кліків на батьківських елементах
+    this.delete.emit();
   }
 }

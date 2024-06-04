@@ -1,6 +1,6 @@
-<li (click)="onClick($event)" [class.done]="item.isChecked">
+<li [class.done]="item.isChecked">
   <input type="checkbox" [checked]="item.isChecked" (click)="toggleCheck($event)">
   <p>{{ item.text }}</p>
   <p>{{ item.date }}</p>
+  <button (click)="onDelete($event)">Delete</button>
 </li>
-
