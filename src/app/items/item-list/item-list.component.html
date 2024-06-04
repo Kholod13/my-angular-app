@@ -1,0 +1,10 @@
+<ul class="list">
+  @for (i of items; track i.id) {
+   <app-list-item [item]="i"></app-list-item>
+  }
+</ul>
+
+<div>
+   <button (click)="clear()">Clear all</button>
+   <button (click)="load()">Load</button>
+</div>

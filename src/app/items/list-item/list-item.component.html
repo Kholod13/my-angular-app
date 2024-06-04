@@ -1,0 +1,6 @@
+<li (click)="onClick($event)" [class.done]="item.isChecked">
+  <input type="checkbox" [checked]="item.isChecked" (click)="toggleCheck($event)">
+  <p>{{ item.text }}</p>
+  <p>{{ item.date }}</p>
+</li>
+
