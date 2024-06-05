@@ -1,3 +1,17 @@
+
+<div>
+   <h3>Create task</h3>
+   <p>
+      <span>Name:</span>
+      <input type="text" [(ngModel)]="newItemName">
+   </p>
+   <p>
+      <span>Date(YY-MM-DD):</span>
+      <input type="text" [(ngModel)]="newItemDate">
+   </p>
+   <button (click)="createTask()">Create</button>
+   <hr>
+</div>
 <div>
    <button (click)="sortDate()">Sort for date</button>
 </div>

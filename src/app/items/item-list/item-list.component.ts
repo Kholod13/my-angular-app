@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ListItemComponent } from "../list-item/list-item.component";
 import { ITEMS } from '../item-moc';
 import { IItem } from '../item';
@@ -7,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
     selector: 'app-item-list',
     standalone: true,
-    imports: [CommonModule, ListItemComponent],
+    imports: [CommonModule, ListItemComponent, FormsModule],
     templateUrl: './item-list.component.html',
     styleUrls: ['./item-list.component.css'],
 })
@@ -16,6 +17,8 @@ export class ItemListComponent {
   originalItems: IItem[] = [...ITEMS];
   deletedItems: IItem[] = [];
   isSorted: boolean = false;
+newItemName: any;
+  newItemDate: any;
 
   clear() {
     this.items = [];
@@ -44,5 +47,16 @@ export class ItemListComponent {
       });
     }
     this.isSorted = !this.isSorted;
+  }
+  createTask(){
+    const newItem: IItem = {
+      id: this.items.length ? Math.max(...this.items.map(item => item.id)) + 1 : 1,
+      text: this.newItemName,
+      date: this.newItemDate,
+      isChecked: false,
+    };
+    this.items.push(newItem);
+    this.newItemName = '';
+    this.newItemDate = '';
   }
 }
