@@ -14,6 +14,8 @@
 </div>
 <div>
    <button (click)="sortDate()">Sort for date</button>
+   <button (click)="clear()">Clear all</button>
+   <button (click)="load()">Load</button>
 </div>
 
 <ul class="list">
@@ -21,8 +23,3 @@
       <app-list-item [item]="i" (delete)="removeItem(idx)"></app-list-item>
    </div>
 </ul>
-
-<div>
-   <button (click)="clear()">Clear all</button>
-   <button (click)="load()">Load</button>
-</div>
