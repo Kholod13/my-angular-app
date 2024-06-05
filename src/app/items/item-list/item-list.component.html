@@ -1,3 +1,7 @@
+<div>
+   <button (click)="sortDate()">Sort for date</button>
+</div>
+
 <ul class="list">
    <div *ngFor="let i of items; let idx = index">
       <app-list-item [item]="i" (delete)="removeItem(idx)"></app-list-item>
